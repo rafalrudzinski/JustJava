@@ -3,6 +3,8 @@ package com.rrudzinski.justjava;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.util.Log;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import java.text.NumberFormat;
 
@@ -22,9 +24,11 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void submitOrder(View view) {
-        //String priceMessage = "Total: $" + calculatePrice() + "\nThank You!";
-        //displayMessage(priceMessage);
-        displayMessage(createOrderSummary(5));
+        CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_checkBox);
+        boolean whippedCreamIsChecked = whippedCreamCheckBox.isChecked();
+        Log.v("MainActivity", "isChecked: " + whippedCreamIsChecked);
+
+        displayMessage(createOrderSummary(5, whippedCreamIsChecked));
     }
 
     /**
@@ -82,8 +86,9 @@ public class MainActivity extends AppCompatActivity {
      * @param price of the order
      * @return text summary
      */
-    private String createOrderSummary(int price) {
-        String priceMessage = "Name: Rafal Rudzinski\nQuantity: " + quantity + "\nTotal: $" + calculatePrice() + "\nThank You!";
+    private String createOrderSummary(int price, boolean checked) {
+        String priceMessage = "Name: Rafal Rudzinski\n" + "Add whipped cream? " + checked +
+                "\nQuantity: " + quantity + "\nTotal: $" + calculatePrice() + "\nThank You!";
         return priceMessage;
     }
 }
