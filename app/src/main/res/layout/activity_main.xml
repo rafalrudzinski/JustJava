@@ -12,10 +12,20 @@
         android:paddingTop="16sp"
         tools:context="com.rrudzinski.justjava.MainActivity">
 
+        <EditText
+            android:id="@+id/name_editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:paddingBottom="6dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/edittext_bottom_line"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingBottom="16sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:text="Toppings"
             android:textAllCaps="true"/>
 
