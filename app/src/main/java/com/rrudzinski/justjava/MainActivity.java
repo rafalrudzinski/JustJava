@@ -24,11 +24,7 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void submitOrder(View view) {
-        CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_checkBox);
-        boolean whippedCreamIsChecked = whippedCreamCheckBox.isChecked();
-        Log.v("MainActivity", "isChecked: " + whippedCreamIsChecked);
-
-        displayMessage(createOrderSummary(5, whippedCreamIsChecked));
+        displayMessage(createOrderSummary(5, isWhippedCreamChecked(), isChocolateChecked()));
     }
 
     /**
@@ -86,9 +82,22 @@ public class MainActivity extends AppCompatActivity {
      * @param price of the order
      * @return text summary
      */
-    private String createOrderSummary(int price, boolean checked) {
-        String priceMessage = "Name: Rafal Rudzinski\n" + "Add whipped cream? " + checked +
+    private String createOrderSummary(int price, boolean whipCreamIsChecked, boolean chocolateIsChecked) {
+        String priceMessage = "Name: Rafal Rudzinski\n" + "Add whipped cream? " + whipCreamIsChecked +
+                "\nAdd chocolate? " + chocolateIsChecked +
                 "\nQuantity: " + quantity + "\nTotal: $" + calculatePrice() + "\nThank You!";
         return priceMessage;
+    }
+
+    private boolean isWhippedCreamChecked() {
+        CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_checkBox);
+
+        return whippedCreamCheckBox.isChecked();
+    }
+
+    private boolean isChocolateChecked() {
+        CheckBox chocolateCheckBox = (CheckBox) findViewById(R.id.chocolate_checkBox);
+
+        return chocolateCheckBox.isChecked();
     }
 }
