@@ -2,16 +2,19 @@ package com.rrudzinski.justjava;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.util.Log;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.content.Context;
 import java.text.NumberFormat;
 
 public class MainActivity extends AppCompatActivity {
 
-    private int quantity = 0;
+    private int quantity = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,11 @@ public class MainActivity extends AppCompatActivity {
      */
     public void increment(View view) {
         if (quantity >= 20) {
+            Context context = getApplicationContext();
+            CharSequence text = "You cannot order more than 100 coffees";
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
             return;
         } else {
             quantity++;
@@ -49,7 +57,12 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void decrement(View view) {
-        if (quantity < 1) {
+        if (quantity <= 1) {
+            Context context = getApplicationContext();
+            CharSequence text = "You cannot order less than 1 coffee";
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
             return;
         } else {
             quantity--;
