@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import java.text.NumberFormat;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,7 +30,13 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void submitOrder(View view) {
-        displayMessage(createOrderSummary(5, hasWhippedCream(), hasChocolate(), getName()));
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Just Java order for " + getName());
+        intent.putExtra(Intent.EXTRA_TEXT, createOrderSummary(5, hasWhippedCream(), hasChocolate(), getName()));
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 
     /**
@@ -79,16 +87,6 @@ public class MainActivity extends AppCompatActivity {
     private void displayQuantity(int number) {
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
         quantityTextView.setText("" + number);
-    }
-
-    /**
-     * Displays order information
-     *
-     * @param message text summary of order
-     */
-    private void displayMessage(String message) {
-        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
-        orderSummaryTextView.setText(message);
     }
 
     /**
