@@ -34,7 +34,12 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void increment(View view) {
-        quantity++;
+        if (quantity >= 20) {
+            return;
+        } else {
+            quantity++;
+        }
+
         displayQuantity(quantity);
     }
 
@@ -44,7 +49,12 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void decrement(View view) {
-        quantity--;
+        if (quantity < 1) {
+            return;
+        } else {
+            quantity--;
+        }
+
         displayQuantity(quantity);
     }
 
