@@ -38,11 +38,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void increment(View view) {
         if (quantity >= 20) {
-            Context context = getApplicationContext();
-            CharSequence text = "You cannot order more than 100 coffees";
-            int duration = Toast.LENGTH_SHORT;
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
+            Toast.makeText(this, "You cannot have more than 20 coffees", Toast.LENGTH_SHORT).show();
             return;
         } else {
             quantity++;
@@ -58,11 +54,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void decrement(View view) {
         if (quantity <= 1) {
-            Context context = getApplicationContext();
-            CharSequence text = "You cannot order less than 1 coffee";
-            int duration = Toast.LENGTH_SHORT;
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
+            Toast.makeText(this, "You cannot have less than 1 coffee", Toast.LENGTH_SHORT).show();
             return;
         } else {
             quantity--;
