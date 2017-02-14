@@ -74,19 +74,17 @@ public class MainActivity extends AppCompatActivity {
      * @return total price
      */
     private int calculatePrice() {
-        int totalPrice;
+        int basePrice = 5;
 
-        if (hasWhippedCream() && hasChocolate()) {
-            totalPrice = (5 + 1 + 2) * quantity;
-        } else if (hasWhippedCream()) {
-            totalPrice = (5 + 1) * quantity;
-        } else if (hasChocolate()) {
-            totalPrice = (5 + 2) * quantity;
-        } else {
-            totalPrice = 5 * quantity;
+        if (hasWhippedCream()) {
+            basePrice += 1;
         }
 
-        return totalPrice;
+        if (hasChocolate()) {
+            basePrice += 2;
+        }
+
+        return quantity * basePrice;
     }
 
     /**
@@ -107,18 +105,33 @@ public class MainActivity extends AppCompatActivity {
         return priceMessage;
     }
 
+    /**
+     * Check if user chose to add whipped cream to order
+     *
+     * @return true if whipped cream was selected, false otherwise
+     */
     private boolean hasWhippedCream() {
         CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_checkBox);
 
         return whippedCreamCheckBox.isChecked();
     }
 
+    /**
+     * Check if user chose to add chocolate to order
+     *
+     * @return true if chocolate was added, false otherwise
+     */
     private boolean hasChocolate() {
         CheckBox chocolateCheckBox = (CheckBox) findViewById(R.id.chocolate_checkBox);
 
         return chocolateCheckBox.isChecked();
     }
 
+    /**
+     * Get user's name entered in EditText field
+     *
+     * @return user's name
+     */
     private String getName() {
         EditText nameFieldView = (EditText) findViewById(R.id.name_field);
 
