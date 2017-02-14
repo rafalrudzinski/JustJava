@@ -13,12 +13,13 @@
         tools:context="com.rrudzinski.justjava.MainActivity">
 
         <EditText
-            android:id="@+id/name_editText"
+            android:id="@+id/name_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Name"
             android:paddingBottom="6dp"
             android:layout_marginRight="16dp"
+            android:inputType="textCapWords"
             android:background="@drawable/edittext_bottom_line"/>
 
         <TextView

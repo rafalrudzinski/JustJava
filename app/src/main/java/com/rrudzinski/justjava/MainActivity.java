@@ -74,7 +74,19 @@ public class MainActivity extends AppCompatActivity {
      * @return total price
      */
     private int calculatePrice() {
-        return quantity * 5;
+        int totalPrice;
+
+        if (hasWhippedCream() && hasChocolate()) {
+            totalPrice = (5 + 1 + 2) * quantity;
+        } else if (hasWhippedCream()) {
+            totalPrice = (5 + 1) * quantity;
+        } else if (hasChocolate()) {
+            totalPrice = (5 + 2) * quantity;
+        } else {
+            totalPrice = 5 * quantity;
+        }
+
+        return totalPrice;
     }
 
     /**
@@ -108,8 +120,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String getName() {
-        EditText nameEditTextView = (EditText) findViewById(R.id.name_editText);
+        EditText nameFieldView = (EditText) findViewById(R.id.name_field);
 
-        return nameEditTextView.getText().toString();
+        return nameFieldView.getText().toString();
     }
 }
