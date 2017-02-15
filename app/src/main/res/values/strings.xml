@@ -1,3 +1,54 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Just Java</string>
+
+    <!-- Hint text displayed in field for user's name -->
+    <string name="name">Name</string>
+
+    <!-- Header for list of toppings [CHAR LIMIT=20] -->
+    <string name="toppings">Toppings</string>
+
+    <!-- Text for whipped cream checkbox label -->
+    <string name="whipped_cream">Whipped Cream</string>
+
+    <!-- Text for chocolate checkbox label -->
+    <string name="chocolate">Chocolate</string>
+
+    <!-- Header for quantity of coffees -->
+    <string name="quantity">Quantity</string>
+
+    <!-- Text for order button -->
+    <string name="order">Order</string>
+
+    <!-- Thank you message for the order summary. [CHAR LIMIT=20] -->
+    <string name="thank_you">Thank You!</string>
+
+    <!--
+        Name for order summary. It will be show in the format "Name: Amy" where
+        Amy is the user's name. [CHAR LIMIT=NONE]
+    -->
+    <string name="order_summary_name">Name: <xliff:g id="userName" example="Amy">%s</xliff:g></string>
+
+    <!--
+        Whipped cream topping for order summary.  It will be shown in the format of
+        "Add whipped cream? true" or "Add whipped cream? false"
+    -->
+    <string name="order_summary_whipped_cream">Whipped Cream? <xliff:g id="addWhippedCream" example="true">%b</xliff:g></string>
+
+    <!--
+        Chocolate topping for order summary. It will be shown in the format of
+        "Add Chocolate? true" or "Add chocolate? false"
+    -->
+    <string name="order_summary_chocolate">Chocolate? <xliff:g id="addChocolate" example="true">%b</xliff:g></string>
+
+    <!--
+        Text for quantity label for order summary. It will be shown in the format of
+        "Quantity: x" x representing the quantity of coffees ordered.
+    -->
+    <string name="order_summary_quantity">Quantity: <xliff:g id="quantity" example="2">%d</xliff:g></string>
+
+    <!--
+        Total price for order summary. It will be shown in the format of
+        "Total: $x" where x is the total price in dollars.
+    -->
+    <string name="order_summary_total_price">Total: $<xliff:g id="price" example="5">%d</xliff:g></string>
 </resources>
